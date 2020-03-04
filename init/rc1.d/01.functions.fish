@@ -12,6 +12,8 @@ function rdf
         rdf_help
     case home
         rdf_home
+    case set_ep
+        set_endpoint $argv[2]
     case query
         rdf_query $argv[2]
     case '*'
@@ -36,7 +38,12 @@ function rdf_help -d "display usage info"
   echo ""
   _fd_display_option 'rdf' "help" "display usage info"
   _fd_display_option 'rdf' "home" "go to the root directory of the current rdf"
+  _fd_display_option 'rdf' "set_ep" "set the endpoint to present queries to"
   _fd_display_option 'rdf' "query" "list all available rdfs"
+end
+
+function set_endpoint -a endpoint -d 'set the endpoint to present queries to'
+    set -U SPARQL_ENDPOINT 'http://localhost:8889/blazegraph/namespace/kb/sparql'
 end
 
 function rdf_query -a sparql_query -d 'send a sparql query to the registered server'
