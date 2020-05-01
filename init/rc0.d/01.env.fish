@@ -15,5 +15,5 @@ end
 
 if not set -q SPARQL_DEFAULT_RESULT_FORMAT
     warn "SPARQL_DEFAULT_RESULT_FORMAT not set. assuming CSV format for now."
-    set -U SPARQL_DEFAULT_RESULT_FORMAT "CSV"
+    set -U SPARQL_DEFAULT_RESULT_FORMAT "text"
 end
